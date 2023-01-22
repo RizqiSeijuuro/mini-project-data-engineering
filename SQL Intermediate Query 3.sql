@@ -1,9 +1,9 @@
-SELECT TOP 5 ProductName
-FROM "Order Details"
+SELECT TOP 5 Products.ProductName AS [Product Name]
+FROM [Order Details]
 INNER JOIN Products
-    ON "Order Details".ProductID=Products.ProductID
+    ON [Order Details].ProductID=Products.ProductID
 INNER JOIN Orders
-    ON "Order Details".OrderID=Orders.OrderID
-WHERE YEAR(OrderDate)=1997 AND MONTH(OrderDate)=1
+    ON [Order Details].OrderID=Orders.OrderID
+WHERE YEAR(Orders.OrderDate)=1997 AND MONTH(Orders.OrderDate)=1
 GROUP BY ProductName
-ORDER BY COUNT(Orders.OrderID) DESC
+ORDER BY COUNT([Order Details].Quantity) DESC
