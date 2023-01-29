@@ -1,4 +1,6 @@
-SELECT TOP 5 Products.ProductName AS [Product Name]
+SELECT 
+	TOP 5 Products.ProductName AS [Product Name], 
+	COUNT([Order Details].Quantity) AS [Total Quantity]
 FROM [Order Details]
 INNER JOIN Products
     ON [Order Details].ProductID=Products.ProductID
